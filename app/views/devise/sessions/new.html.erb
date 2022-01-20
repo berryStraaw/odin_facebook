@@ -1,10 +1,8 @@
-<h2>Log in</h2>
 
-
-<div class="loginbox">
-  <div class="header">
+<div class="loginBox">
+  <div class="loginHeader">
     <div class="logo">
-      facebook
+      <img class="fb_logo" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook">
     </div>
     <div class="logoText">
       Facebook helps you connect and share with the people in your life
@@ -12,28 +10,31 @@
   </div>
 
   <div class="loginForm">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="loginFormField">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div class="loginFormField">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Log in" %>
-      </div>
+    <div class="loginBorder">
+      <p class="alert"><%= alert %></p>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="loginFormField">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address" %>
+        </div>
+        <div class="loginFormField">
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+        </div>
+        <div class="loginActions">
+          <%= f.submit "Log in" %>
+        </div>
 
-      TO-DO forgotten password mailer
-    <% end %>
-
+        <div class="loginForgot">
+          TO-DO forgotten password mailer
+        </div>
+        
+      <% end %>
+    </div>
     <%= link_to "Create New Account", new_user_registration_path, class: "loginNewAccountButton" %>
   </div>
 </div>
 
 <footer>
-
+TO-DO signup-login - link
 </footer>
 
 

@@ -1,29 +1,76 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="loginBox signupBox">
+<div class="loginHeader">
+  <div class="logo">
+    <img class="fb_logo" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook">
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="logoText">
+    Facebook helps you connect and share with the people in your life
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<div class="loginForm signupForm">
+  <div class="loginBorder">
+    <h1>Sign Up</h1>
+    <p>It's quick and easy.</p>
+    <p class="alert"><%= alert %></p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="loginFormField">
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name" %>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.text_field :surname, autofocus: true, autocomplete: "surname", placeholder: "Surname" %>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address" %>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.password_field :password, autocomplete: "new-password" , placeholder: "Password"%>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Repeat password" %>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.label :dateOfBirth, "Date of birth" , class: "greySmallText"%><br />
+        <%= f.date_field :dateOfBirth, autocomplete: "date", placeholder: "Date of birth" %>
+      </div>
+    
+      <div class="signupFormField">
+        <%= f.label :gender, class: "greySmallText" %><br />
+        <div class="signUpRadio">
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Male", :value => "Male"  %>
+            <%= f.radio_button :gender, 'Male' %>
+          </div>
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Female", :value => "Female" %>
+            <%= f.radio_button :gender, 'Female' %>
+          </div>
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Other", :value => "Other" %>
+            <%= f.radio_button :gender, 'Other' %>
+          </div>
+        </div>
+      </div>
+    
+      <div class="signupActions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
   </div>
+  <%= link_to "Log In", new_user_session_path, class: "loginNewAccountButton" %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+</div>
+</div>
 
-<%= render "devise/shared/links" %>
+<footer>
+
+</footer>
+
