@@ -159,3 +159,58 @@ body{
  .signupBox{
     padding: 2rem 2rem;
  }
+
+
+ nav{
+     display: flex;
+     background-color: #242526;
+     border-bottom: 1px solid #38393A ;
+     justify-content: space-between;
+     align-items: center;
+     
+     padding-left: 1rem;
+     padding-right: 2rem;
+     color:white;
+     height: 60px;
+ }
+
+ .navLogoSearch{
+     display: flex;
+     align-items: center;
+ }
+
+ .navLogoSearch img{
+    height: 50px;
+ }
+
+ .navIcons ul{
+     display: flex;
+     align-items: center;
+    list-style: none;
+ }
+
+ .navIcons li{
+   margin-right: 2rem;
+   
+}
+
+.navIcons .navIconColor{
+    filter: invert(72%) sepia(0%) saturate(2416%) hue-rotate(100deg) brightness(101%) contrast(94%);
+}
+
+ .navProfile{
+     display: flex;
+     align-items: center;
+ }
+
+ .navPfpText{
+     display:flex;
+     margin-right: 2rem;
+ }
+ .navPfp{
+    margin-right: 1rem;
+ }
+
+ .navNotifications{
+     margin-right: 2rem;
+ }
