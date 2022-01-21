@@ -1,2 +1,22 @@
-hi
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>
+<div class="index">
+    <div class="createPost">
+        <%#= link_to "New Post", new_post_path %> 
+        <%= render 'newPost', post: @post %>
+        <%#= render_async post_newForm_path %>
+    </div>
+
+    <div class="indexPostsBox">
+        <% @posts.each do |post| %>
+            <div class="post">
+                <div class="postUser">
+                <%=post.user.name%>
+                </div>
+                <div class="postContent">
+                <%=post.body%>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>
+    <%# = content_for :render_async %>
+</div>   

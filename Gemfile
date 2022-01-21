@@ -90,3 +90,5 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 #* Not required *
 #
 #
+
+gem 'render_async'

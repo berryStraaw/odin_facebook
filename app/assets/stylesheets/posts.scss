@@ -1,3 +1,58 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.index{
+    margin: 0 auto 0;
+    width: 800px;
+    color:#B8BBBF;
+}
+.createPost{
+    margin-top: 2rem;
+    background-color: #242526;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+.createPost #post_body{
+    background-color: #4E4F50;
+    border-radius: 3rem;
+    border:none;
+    width: 700px;
+    line-height: 1rem;
+    font-size: 1.25rem;
+    color:#E7E9ED;
+    height: 3rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+.createPost #post_body::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:#A4A6AA;
+  }
+
+.newPostActions{
+    width: 50%;
+    margin:0 auto 0;
+    
+}
+.newPostActions input{
+    background-color: #2374E1;
+    border:none;
+    height: 2rem;
+    border-radius: 2rem;
+    width: 80%;
+    margin:0 auto 2rem;
+    color:#E7E9ED;
+    font-size: 1.25rem;
+}
+
+.post{
+    background-color: #242526;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}

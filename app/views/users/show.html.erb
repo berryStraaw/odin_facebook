@@ -1,0 +1,33 @@
+<div class="showUser">
+    <div class="userPfp">
+    IMG
+    </div>
+
+    <div class="userName">
+        <%= @user.name%>
+        <%= @user.surname%>
+    </div>
+
+    <div class="userEdit">
+        Edit Button
+    </div>
+
+    <div class="createPost">
+        <%= render 'posts/newPost', post: @post %>
+        <%#= render :partial => 'posts/newPost', post: @post %>
+    </div>
+
+    <div class="userFeed">
+        <% @posts.each do |post| %>
+            <div class="post">
+                <div class="postUser">
+                <%=post.user.name%>
+                </div>
+                <div class="postContent">
+                <%=post.body%>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>
+</div>
