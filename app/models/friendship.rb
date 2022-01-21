@@ -28,15 +28,11 @@ class Friendship < ApplicationRecord
   #  end
   #end
 
-  before_destroy do |p|
-    p p
-    reciprocal = Friendship.find(user_id: p.friend_id)
+  after_destroy do |p|
+    reciprocal = Friendship.find_by_user_id_and_friend_id(p.friend_id,p.user_id)
     reciprocal.destroy unless reciprocal.nil?
   end
 
   # u1.friendships.build(friend_id: u2.id).save
-  #Friendship.where(["user_id= ? and friend_id= ?","1","2"])
-  #User.where(name: 'Joe', email: 'joe@example.com')
-  #Friendship.where(user_id=2,friend_id=1)
-  #Fix destroy
+  # friendship.first.destroy
 end
