@@ -27,4 +27,8 @@ class User < ApplicationRecord
   has_many :friendships, :dependent => :destroy
   has_many :friends, :through => :friendships, :source => :user
 
+  has_many :friend_requests, :dependent => :destroy
+  has_many :receivers, :through => :friend_requests, source => :requestor
+  has_many :requestors, :through => :friend_requests, source => :receiver
+
 end

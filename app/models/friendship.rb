@@ -34,5 +34,6 @@ class Friendship < ApplicationRecord
   end
 
   # u1.friendships.build(friend_id: u2.id).save
+  # Friendship.find_by_user_id_and_friend_id(p.user_id,p.friend_id,).destroy
   # friendship.first.destroy
 end
