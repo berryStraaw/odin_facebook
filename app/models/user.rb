@@ -28,7 +28,13 @@ class User < ApplicationRecord
   has_many :friends, :through => :friendships, :source => :user
 
   has_many :friend_requests, :dependent => :destroy
-  has_many :receivers, :through => :friend_requests, source => :requestor
-  has_many :requestors, :through => :friend_requests, source => :receiver
+  has_many :receivers, :through => :friend_requests, :source => :user
+  #has_many :requestors, :through => :friend_requests, :source => "requestor_id"
 
+
+  #belongs_to :user, :foreign_key => :requestor_id
+  #belongs_to :user, :foreign_key => :receiver_id
+
+  #t.integer "requestor_id"
+  #    t.integer "receiver_id"
 end

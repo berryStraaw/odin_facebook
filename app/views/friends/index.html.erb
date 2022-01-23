@@ -1,10 +1,24 @@
 <div class="friendslist">
+    <h1>Friend requests</h1>
+    <div class="friendContainer">    
+        <% @friend_requests.each do |friend| %>
+            <%= link_to friend do%>
+                <div class="friendBox">
+                    <%=friend.name%>
+                </div> 
+            <% end %>
+            <%# link_to %>
+            <%= link_to "Add as friend", {controller: "friends", action: "accept_request", id: friend.id}, method: :post %>
+        <% end %>
+    </div>
+
     <h1>Friends</h1>
     <div class="friendContainer">    
         <% @friends.each do |friend| %>
             <%= link_to friend do%>
                 <div class="friendBox">
                     <%=friend.name%>
+                    <%=friend.email%>
                 </div> 
             <% end %>
         <% end %>

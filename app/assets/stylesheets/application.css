@@ -218,3 +218,8 @@ body{
  body{
      background-color: #18191A;
  }
+
+ .bell_logo{
+    filter: invert(57%) sepia(7%) saturate(47%) hue-rotate(202deg) brightness(93%) contrast(93%);
+     width: 25px;
+ }
