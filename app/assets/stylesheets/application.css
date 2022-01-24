@@ -14,6 +14,19 @@
  *= require_self
  */
 
+
+ /*
+Colors:
+color:#E7E9ED; Light white text
+#F0F2F5; background
+#FFFFFF; backgrouund 
+#dddfe2; border
+#166FE5; blue
+#dadde1; border bottom
+#42B72A; green
+#606770; signup form color
+#18191A; body
+ */
 body{
     margin: 0;
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;

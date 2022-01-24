@@ -5,11 +5,17 @@ Rails.application.routes.draw do
   post 'friends/create'
   post 'friends/create_request'
   post 'friends/accept_request'
+  
+  post 'posts/like'
 
   resources :friend_requests
+
   devise_for :users
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :users
 
   root 'posts#index'

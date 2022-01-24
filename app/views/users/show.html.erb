@@ -1,15 +1,19 @@
 <div class="showUser">
-    <div class="userPfp">
-    IMG
-    </div>
+    <div class="userDetails">
+        <div class="userPfp">
+        IMG
+        </div>
 
-    <div class="userName">
-        <%= @user.name%>
-        <%= @user.surname%>
-    </div>
+        <div class="userName">
+            <%= @user.name%>
+            <%= @user.surname%>
+        </div>
 
-    <div class="userEdit">
-        Edit Button
+        <div class="userEdit">
+        <% if @user.id==current_user.id %>
+                <%= link_to "Edit Profile", edit_user_registration_path  %>
+        <% end %>
+        </div>
     </div>
 
     <div class="createPost">
@@ -17,24 +21,12 @@
             <%= render 'posts/newPost', post: @post %>
 
         <% else %>
-
-            <%= link_to "Add as friend", {controller: "friends", action: "create_request", id: @user.id}, method: :post %>
-        
+            <%= link_to "Send a friend request", {controller: "friends", action: "create_request", id: @user.id}, method: :post %>
         <% end %>
         <%#= render :partial => 'posts/newPost', post: @post %>
     </div>
 
     <div class="userFeed">
-        <% @posts.each do |post| %>
-            <div class="post">
-                <div class="postUser">
-                <%=post.user.name%>
-                </div>
-                <div class="postContent">
-                <%=post.body%>
-                </div>
-                
-            </div>
-        <% end %>
+        <%= render 'posts/showPosts', posts: @posts %>
     </div>
 </div>

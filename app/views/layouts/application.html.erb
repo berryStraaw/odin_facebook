@@ -52,7 +52,13 @@
             </div>
           </div>
           <div class="navNotifications">
-            <img alt="Notifications" class="bell_logo" src="/assets/bell-default.png">
+            <a href=<%=friends_path%>>
+            <% if !@notifications.nil? %>
+              <img alt="Notifications" class="bell_logo" src="/assets/bell-alert.png">
+            <% else %>
+              <img alt="Notifications" class="bell_logo" src="/assets/bell-default.png">
+            <% end%>
+            </a>
           </div>
           <div class="navNotifications">
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-info" %>

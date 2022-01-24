@@ -5,6 +5,14 @@ class PostsController < ApplicationController
         #@posts=current_user.friends.posts.all
         @posts=current_user.posts.all
         @post=Post.new
+        @notifications=FriendRequest.where(receiver_id:current_user.id)
+        
+    end
+
+    def like
+        @post=Post.find(params[:id])
+        @post.likes<<current_user unless @post.likes.ids.include?(current_user.id)
+        
     end
 
     def show
@@ -19,6 +27,7 @@ class PostsController < ApplicationController
         @post=Post.new
         render partial: "newPost"
     end
+    
     def create
         @post=current_user.posts.build(post_params)
         respond_to do |format|

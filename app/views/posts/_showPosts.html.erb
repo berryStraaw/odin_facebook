@@ -1,0 +1,62 @@
+<% posts.each do |post| %>
+    <div class="post">
+        <div class="postUserDetails">
+            <div class="postUserPfpNameDate">
+                <div class="postUserPfp">
+                    Img
+                </div>
+                <div class="postUserNameDate">
+                    <div class="postUserName">
+                        <%=post.user.name%>
+                        <%=post.user.surname%>
+                    </div>
+                    <div class="postUserDate">
+                        <% time=Time.parse(post.user.created_at.to_s) %>
+                        <%= time.day%>
+                        <%= Date::MONTHNAMES[time.month]%>
+                        <% if Time.now.year> time.year %>
+                            <%= time.year %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="postUserDel">
+                <% if post.user_id==current_user.id%>
+                    Edit
+                    Del
+                <% end %>
+            </div>
+        </div>
+        
+        <div class="postContent">
+            <%=post.body%>
+        </div>
+        <div class="postStats">
+            <div class="postLike">
+                <%= link_to "Likes", {controller: "posts", action: "like", id: post.id}, method: :post %>
+            </div>
+            <% if post.likes.count>0 %>
+                <div class="postLikes">
+                    <%= post.likes.count %>
+                </div>
+            <% end %>
+        </div>
+        
+        
+        <% post.comments.each do |comment| %>
+            <%= comment.body%>
+        <% end %>
+        <h2>Add a comment:</h2>
+        <%= form_with model: [ post, post.comments.build ] do |form| %>
+            <p>
+                <%= form.label :body %><br>
+                <%= form.text_area :body %>
+            </p>
+            <p>
+                <%= form.submit %>
+            </p>
+        <% end %>
+        
+    </div>
+<% end %>

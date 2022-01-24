@@ -37,4 +37,12 @@ class User < ApplicationRecord
 
   #t.integer "requestor_id"
   #    t.integer "receiver_id"
+
+  
+  has_many :liked_posts
+  has_many :favourites, through: :liked_posts, source: :post
+
+  has_many :comments
+  has_many :liked_comments
+  has_many :Cfavourites, through: :liked_comments, source: :comment
 end

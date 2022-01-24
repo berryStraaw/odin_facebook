@@ -1,9 +1,59 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+ /*
+Colors:
+color:#E7E9ED; Light white text
+#F0F2F5; background
+#FFFFFF; backgrouund 
+#dddfe2; border
+#166FE5; blue
+#dadde1; border bottom
+#42B72A; green
+#606770; signup form color
+#18191A; body
+ */
+
 .showUser{
     margin: 3rem auto 0;
     width: 800px;
     color:#B8BBBF;
 }
+
+.userDetails{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userPfp{
+    border-radius: 50%;
+    background-color: grey;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin-bottom: 2rem;
+}
+
+.userName{
+    font-size: 36px;
+    font-weight: 700;
+    color: #E7E9ED;
+    margin-bottom: 1rem;
+}
+
+.userEdit a{
+    color:#166FE5;
+    text-decoration: none;
+}
+
+.userEdit{
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid darkgrey;
+}
+
 
