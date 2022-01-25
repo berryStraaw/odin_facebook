@@ -2,13 +2,28 @@
     <h1>Friend requests</h1>
     <div class="friendContainer">    
         <% @friend_requests.each do |friend| %>
-            <%= link_to friend do%>
-                <div class="friendBox">
-                    <%=friend.name%>
-                </div> 
-            <% end %>
-            <%# link_to %>
-            <%= link_to "Add as friend", {controller: "friends", action: "accept_request", id: friend.id}, method: :post %>
+            <div class="friend">
+
+            
+                <%= link_to friend do%>
+                    <div class="friendBox">
+                        <div class="friendImg">
+                        IMG
+                        </div>
+                        <%=friend.name%>
+                        <%=friend.surname%>
+                    </div> 
+                <% end %>
+                <div class="friendResponse">
+                    <div class="responseAccept">
+                        <%= link_to "Accept", {controller: "friends", action: "accept_request", id: friend.id}, method: :post %>
+                    </div>
+                    <div class="responseReject">
+                        <%= link_to "Decline", {controller: "friends", action: "reject_request", id: friend.id}, method: :post %>
+                    </div>
+                </div>
+                
+            </div>
         <% end %>
     </div>
 
@@ -16,9 +31,25 @@
     <div class="friendContainer">    
         <% @friends.each do |friend| %>
             <%= link_to friend do%>
-                <div class="friendBox">
+                <div class="friendBox friend">
+                    <div class="friendImg">
+                        IMG
+                    </div>
                     <%=friend.name%>
-                    <%=friend.email%>
+                    <%=friend.surname%>
+                </div> 
+            <% end %>
+        <% end %>
+    </div>
+
+    <h1> All users </h1>
+    <div class="allUsers">
+        <% @users.each do |user| %>
+            <%= link_to user do%>
+                <div class="userBox">
+                
+                    <%=user.name%>
+                    <%=user.surname%>
                 </div> 
             <% end %>
         <% end %>

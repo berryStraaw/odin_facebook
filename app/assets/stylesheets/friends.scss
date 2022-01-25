@@ -1,6 +1,8 @@
 // Place all the styles related to the Friends controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
 .friendslist{
     margin: 3rem auto 0;
     color:#B8BBBF;
@@ -8,8 +10,9 @@
 }
 
 .friendBox{
+    display: flex;
     background-color: #4E4F50;
-    border-radius: 3rem;
+    border-radius: 3rem 3rem 0 3rem;
     border:none;
     width: 200px;
     line-height: 3rem;
@@ -17,12 +20,70 @@
     color:#E7E9ED;
     height: 3rem;
     padding-left: 1rem;
-    margin-bottom: 2rem;
-    margin-right: 3rem;
+    position: relative;
+    z-index: 2;
 }
 
 .friendContainer{
     padding:1rem 20vw;
     display: flex;
     flex-wrap: wrap;
+}
+
+.friendImg{
+    margin-left:-16px;
+    border-radius: 50%;
+    background-color: black;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    margin-right: 1rem;
+}
+.friend{
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+}
+
+.friend *{
+    text-decoration: none;
+}
+
+.friendResponse{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+    width: 216px;
+    margin-top: -1.5rem;
+    
+    background-color: greenyellow;
+    font-size: 1.25rem;
+    z-index: 1;
+    position: absolute;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.responseAccept{
+    padding-top: 1.5rem;
+    background-color: greenyellow;
+    
+    height: 100%;
+    padding-left: 45px;
+    border-radius: 0 0 0 1rem;
+    
+}
+.responseReject{
+    padding-top: 1.5rem;
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 1rem ;
+    
+}
+
+.responseAccept *{
+    color: black;
+}
+
+.responseReject *{
+    color: #4E4F50;
 }

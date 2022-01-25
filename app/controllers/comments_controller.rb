@@ -8,6 +8,13 @@ class CommentsController < ApplicationController
     @comment=Comment.new
   end
 
+  def like
+    @comment=Comment.find(params[:id])
+    @comment.likes<<current_user unless @comment.likes.ids.include?(current_user.id)
+    redirect_to root_path(anchor: "comment_"+params[:id]) unless @comment.likes.ids.include?(current_user.id)
+  end
+
+
   def create
     #post=Post.find(params[:post_id])
     @post = Post.find(params[:post_id])
@@ -23,12 +30,12 @@ class CommentsController < ApplicationController
           format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
     end
-end
+  end
 
-private
+  private
 
-def comment_params
-    params.require(:comment).permit(:body)
-end
+  def comment_params
+      params.require(:comment).permit(:body)
+  end
 
 end

@@ -6,6 +6,8 @@ class FriendsController < ApplicationController
     fr.each do |request|
       @friend_requests<< @user=User.find(request.user_id)
     end
+
+    @users=User.all
     #@friend_requests=current_user.receivers
   end
 
@@ -13,8 +15,9 @@ class FriendsController < ApplicationController
     @friend_request=current_user.friend_requests.build(receiver_id: params[:id])
     respond_to do |format|
       if @friend_request.save
+        user=User.find(params[:id])
           #UserMailer.with(user: current_user).welcome_email.deliver_later
-        format.html { redirect_to root_path, notice: "Friend request sent" }
+        format.html { redirect_to user, notice: "Friend request sent" }
         format.json { render :show, status: :created, location: @friend_request }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -27,6 +30,16 @@ class FriendsController < ApplicationController
     if FriendRequest.find_by_user_id_and_receiver_id(params[:id],current_user.id)
       delete_request
       create
+    end
+  end
+
+  def reject_request
+    respond_to do |format|
+      if delete_request
+        format.html { redirect_to friends_path, notice: "Friend request rejected" }
+      else
+        format.html { render :index, status: :unprocessable_entity }
+      end
     end
   end
 

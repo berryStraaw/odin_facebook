@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   post 'friends/create'
   post 'friends/create_request'
   post 'friends/accept_request'
+  post 'friends/reject_request'
   
   post 'posts/like'
-
+  post 'comments/like'
   resources :friend_requests
 
   devise_for :users

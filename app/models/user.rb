@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   has_many :friendships, :dependent => :destroy
   has_many :friends, :through => :friendships, :source => :user
+  has_many :friendsPosts, :through => :friends, :source => :posts
 
   has_many :friend_requests, :dependent => :destroy
   has_many :receivers, :through => :friend_requests, :source => :user
@@ -45,4 +46,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :liked_comments
   has_many :Cfavourites, through: :liked_comments, source: :comment
+
+  def allPosts
+    (posts.all+friendsPosts.all)
+  end
 end

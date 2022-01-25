@@ -3,7 +3,11 @@ class PostsController < ApplicationController
 
     def index
         #@posts=current_user.friends.posts.all
-        @posts=current_user.posts.all
+        @posts=current_user.posts.all#.and(current_user.friendsPosts.all)
+        @posts2=current_user.friendsPosts.all
+        @posts=current_user.allPosts.sort_by(&:"#{'created_at'}").reverse
+        #@posts<<@posts2
+        
         @post=Post.new
         @notifications=FriendRequest.where(receiver_id:current_user.id)
         
@@ -12,7 +16,7 @@ class PostsController < ApplicationController
     def like
         @post=Post.find(params[:id])
         @post.likes<<current_user unless @post.likes.ids.include?(current_user.id)
-        
+        redirect_to root_path(anchor: "post_"+params[:id]) unless @post.likes.ids.include?(current_user.id)
     end
 
     def show

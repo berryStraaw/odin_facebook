@@ -1,5 +1,7 @@
+
+
 <% posts.each do |post| %>
-    <div class="post">
+    <div class="post" id=post_<%=post.id%>>
         <div class="postUserDetails">
             <div class="postUserPfpNameDate">
                 <div class="postUserPfp">
@@ -11,11 +13,15 @@
                         <%=post.user.surname%>
                     </div>
                     <div class="postUserDate">
-                        <% time=Time.parse(post.user.created_at.to_s) %>
+                        <% time=Time.parse(post.created_at.to_s) %>
                         <%= time.day%>
                         <%= Date::MONTHNAMES[time.month]%>
                         <% if Time.now.year> time.year %>
                             <%= time.year %>
+                        <% end %>
+                        <% if Time.now-time<86400 %>
+                            <%= time.hour%>:
+                            <%= time.min%>
                         <% end %>
                     </div>
                 </div>
@@ -34,7 +40,15 @@
         </div>
         <div class="postStats">
             <div class="postLike">
-                <%= link_to "Likes", {controller: "posts", action: "like", id: post.id}, method: :post %>
+                <% if post.likes.ids.include?(current_user.id)%>
+                    <%= link_to({controller: "posts", action: "like", id: post.id}, {method: :post} ) do %>
+                        <img alt="Notifications" class="like-logo" src="/assets/thumb-up.png">
+                    <% end %>
+                <% else %>
+                    <%= link_to({controller: "posts", action: "like", id: post.id}, {method: :post} ) do %>
+                        <img alt="Notifications" class="like-logo" src="/assets/thumb-up-outline.png">
+                    <% end %>
+                <% end %>
             </div>
             <% if post.likes.count>0 %>
                 <div class="postLikes">
@@ -42,21 +56,61 @@
                 </div>
             <% end %>
         </div>
-        
-        
+        <% if post.comments.any? %>
+            Comments:
+        <% end %>
         <% post.comments.each do |comment| %>
-            <%= comment.body%>
+            <div class="postComment" id=comment_<%=comment.id%>>
+                <div class="postCommentPfp">
+                 img
+                </div>
+                <div class="postCommentContent">
+                    <div class="postCommentOwner">
+                        <%=comment.user.name%>
+                        <%=comment.user.surname%>
+                    </div>
+                    <div class="postCommentBody">
+                        <%= comment.body%>
+                    </div>
+                    <div class="postCommentControlls">
+                        <% if comment.likes.ids.include?(current_user.id)%>
+                            <%= link_to({controller: "comments", action: "like", id: comment.id}, {method: :post} ) do %>
+                                <img alt="Notifications" class="like-logo" src="/assets/thumb-up.png">
+                            <% end %>
+                        <% else %>
+                            <%= link_to({controller: "comments", action: "like", id: comment.id}, {method: :post} ) do %>
+                                <img alt="Notifications" class="like-logo" src="/assets/thumb-up-outline.png">
+                            <% end %>
+                        <% end %>
+                        <% if comment.likes.count>0 %>
+                            <div class="commentLikes">
+                                <%= comment.likes.count %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                
+            </div>
+            
         <% end %>
-        <h2>Add a comment:</h2>
-        <%= form_with model: [ post, post.comments.build ] do |form| %>
-            <p>
-                <%= form.label :body %><br>
-                <%= form.text_area :body %>
-            </p>
-            <p>
-                <%= form.submit %>
-            </p>
-        <% end %>
+        
+        <div class="postCommentAdd">
+            <div class="postCommentAddPfp">
+                IMG
+            </div>
+            
+            <%= form_with model: [ post, post.comments.build ] do |form| %>
+                <div class="postCommentAddBody">
+                    <%= form.text_field :body, placeholder: "What do you think?"%>
+
+                </div>
+                <div class="postCommentSubmit">
+                    <%= form.submit "Post"%>
+                </div>
+            <% end %>
+        </div>
+        
+        
         
     </div>
 <% end %>
