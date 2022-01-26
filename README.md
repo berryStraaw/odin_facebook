@@ -22,3 +22,17 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+TO-DO
+
+1 
+2 
+3
+4
+5
+6
+7 Nav style
+8 Unlike
+9. reload after adding comment
+10 footer
+11 forgoten password

@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   post 'friends/accept_request'
   post 'friends/reject_request'
   
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',registrations: 'users/registrations' }
   post 'posts/like'
   post 'comments/like'
   resources :friend_requests
 
-  devise_for :users
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :posts do

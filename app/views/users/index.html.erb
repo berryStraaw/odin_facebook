@@ -1,0 +1,16 @@
+<div class="userSearchBox">
+
+<% if !@users.nil? %>
+<% @users.each do |user| %>
+    <%= link_to user do %>
+    <div class="userSearch">
+        <%= user.name%>
+        <%= user.surname%>
+    </div>
+    <% end %>
+<% end %>
+<% else %>
+ <div class="userSearch">User not found</div>
+
+ <% end %>
+ </div>

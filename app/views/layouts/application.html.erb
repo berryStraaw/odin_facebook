@@ -8,6 +8,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+
+
   </head>
 
   <body>
@@ -21,8 +26,8 @@
           </div>
           <div class="navSearch">
             <%= form_with url: "/users", method: :get do |f| %>
-              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Search" %>
-              <%= f.submit "Search" %>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Search for a user" %>
+              <%= f.submit "Find" %>
             <% end %>
           </div>
         </div>

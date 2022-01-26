@@ -20,7 +20,7 @@
         <% if @user.id==current_user.id %>
             <%= render 'posts/newPost', post: @post %>
 
-        <% else %>
+        <% elsif !current_user.receivers.include?(@user) && !current_user.friends.include?(@user)%>
             <%= link_to "Send a friend request", {controller: "friends", action: "create_request", id: @user.id}, method: :post %>
         <% end %>
         <%#= render :partial => 'posts/newPost', post: @post %>

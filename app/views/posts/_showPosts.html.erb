@@ -4,14 +4,19 @@
     <div class="post" id=post_<%=post.id%>>
         <div class="postUserDetails">
             <div class="postUserPfpNameDate">
-                <div class="postUserPfp">
-                    Img
-                </div>
-                <div class="postUserNameDate">
-                    <div class="postUserName">
-                        <%=post.user.name%>
-                        <%=post.user.surname%>
+                <%= link_to(post.user) do %>
+                    <div class="postUserPfp">
+                        Img
                     </div>
+                <% end %>
+                <div class="postUserNameDate">
+                    <%= link_to(post.user) do %>
+                        <div class="postUserName">
+                            <%=post.user.name%>
+                            <%=post.user.surname%>
+                        </div>   
+                    <% end %>
+                    
                     <div class="postUserDate">
                         <% time=Time.parse(post.created_at.to_s) %>
                         <%= time.day%>
@@ -29,8 +34,9 @@
 
             <div class="postUserDel">
                 <% if post.user_id==current_user.id%>
-                    Edit
-                    Del
+                    <%= link_to({controller: "posts",action: "destroy", id: post.id}, {method: :delete} ) do %>
+                        <img alt="Notifications" class="delete-logo" src="/assets/delete.png">
+                    <% end %>
                 <% end %>
             </div>
         </div>
@@ -61,14 +67,18 @@
         <% end %>
         <% post.comments.each do |comment| %>
             <div class="postComment" id=comment_<%=comment.id%>>
-                <div class="postCommentPfp">
-                 img
-                </div>
-                <div class="postCommentContent">
-                    <div class="postCommentOwner">
-                        <%=comment.user.name%>
-                        <%=comment.user.surname%>
+                <%= link_to(comment.user) do %>
+                    <div class="postCommentPfp">
+                        img
                     </div>
+                <% end %>
+                <div class="postCommentContent">
+                    <%= link_to(comment.user) do %>
+                        <div class="postCommentOwner">
+                            <%=comment.user.name%>
+                            <%=comment.user.surname%>
+                        </div>
+                    <% end %>
                     <div class="postCommentBody">
                         <%= comment.body%>
                     </div>

@@ -56,4 +56,34 @@ color:#E7E9ED; Light white text
     border-bottom: 1px solid darkgrey;
 }
 
-
+.createPost a{
+    height: 3rem;   
+    background-color: #166FE5;
+    color:#FFFFFF;
+    border:none;
+    border-radius: 8px;
+    width: 385px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 3rem;
+}
+.userSearchBox{
+    padding:1rem 20vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+.userSearch{
+    display: flex;
+    background-color: #4E4F50;
+    border-radius: 3rem;
+    border:none;
+    width: 200px;
+    line-height: 3rem;
+    font-size: 1rem;
+    color:#E7E9ED;
+    height: 3rem;
+    padding-left: 1rem;
+    position: relative;
+    z-index: 2;
+}

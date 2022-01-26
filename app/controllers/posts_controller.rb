@@ -3,9 +3,9 @@ class PostsController < ApplicationController
 
     def index
         #@posts=current_user.friends.posts.all
-        @posts=current_user.posts.all#.and(current_user.friendsPosts.all)
-        @posts2=current_user.friendsPosts.all
-        @posts=current_user.allPosts.sort_by(&:"#{'created_at'}").reverse
+        #@posts=current_user.posts.all#.and(current_user.friendsPosts.all)
+        #@posts2=current_user.friendsPosts.all
+        @posts=current_user.allPosts.sort_by(&:"#{'created_at'}").reverse.uniq
         #@posts<<@posts2
         
         @post=Post.new
@@ -46,6 +46,19 @@ class PostsController < ApplicationController
         end
     end
 
+    def destroy
+        @post=Post.find(params[:id])
+        respond_to do |format|
+            if @post.delete
+                #UserMailer.with(user: current_user).welcome_email.deliver_later
+              format.html { redirect_to root_path, notice: "Post was successfully deleted." }
+              format.json { render :show, status: :created, location: @post }
+            else
+              format.html { render :new, status: :unprocessable_entity }
+              format.json { render json: @post.errors, status: :unprocessable_entity }
+            end
+        end
+    end
     private
 
     def post_params

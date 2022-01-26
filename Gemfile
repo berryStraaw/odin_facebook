@@ -23,7 +23,16 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+ gem 'image_processing', '~> 1.2'
+ gem "aws-sdk-s3", require: false
+
+ #omniauth
+
+ gem 'omniauth-facebook', '~> 9.0'
+ gem 'omniauth-rails_csrf_protection'
+ #figaro 
+ gem 'figaro', '~> 1.1', '>= 1.1.1'
+ 
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -31,7 +40,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  #letter opener
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
+
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

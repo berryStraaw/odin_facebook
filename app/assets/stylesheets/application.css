@@ -31,6 +31,10 @@ body{
     margin: 0;
     font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
 }
+
+body *{
+    text-decoration: none;
+}
  .loginBox{
      background-color: #F0F2F5;
      display: flex;
@@ -61,7 +65,7 @@ body{
      width: 400px;
      padding:15px 1rem 24px 1rem;
      flex-shrink: 0;
-     ;
+     
  }
 
  .loginFormField input{
