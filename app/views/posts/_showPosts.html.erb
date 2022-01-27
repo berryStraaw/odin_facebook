@@ -40,7 +40,7 @@
             <div class="postUserDel">
                 <% if post.user_id==current_user.id%>
                     <%= link_to({controller: "posts",action: "destroy", id: post.id}, {method: :delete} ) do %>
-                        <img alt="Notifications" class="delete-logo" src="/assets/delete.png">
+                        <img alt="Delete" class="delete-logo" src="/assets/delete.png">
                     <% end %>
                 <% end %>
             </div>
@@ -59,11 +59,11 @@
             <div class="postLike">
                 <% if post.likes.ids.include?(current_user.id)%>
                     <%= link_to({controller: "posts", action: "like", id: post.id}, {method: :post} ) do %>
-                        <img alt="Notifications" class="like-logo" src="/assets/thumb-up.png">
+                        <img alt="Like" class="like-logo" src="/assets/thumb-up.png">
                     <% end %>
                 <% else %>
                     <%= link_to({controller: "posts", action: "like", id: post.id}, {method: :post} ) do %>
-                        <img alt="Notifications" class="like-logo" src="/assets/thumb-up-outline.png">
+                        <img alt="Like" class="like-logo" src="/assets/thumb-up-outline.png">
                     <% end %>
                 <% end %>
             </div>
@@ -101,11 +101,11 @@
                     <div class="postCommentControlls">
                         <% if comment.likes.ids.include?(current_user.id)%>
                             <%= link_to({controller: "comments", action: "like", id: comment.id}, {method: :post} ) do %>
-                                <img alt="Notifications" class="like-logo" src="/assets/thumb-up.png">
+                                <img alt="Like" class="like-logo" src="/assets/thumb-up.png">
                             <% end %>
                         <% else %>
                             <%= link_to({controller: "comments", action: "like", id: comment.id}, {method: :post} ) do %>
-                                <img alt="Notifications" class="like-logo" src="/assets/thumb-up-outline.png">
+                                <img alt="Like" class="like-logo" src="/assets/thumb-up-outline.png">
                             <% end %>
                         <% end %>
                         <% if comment.likes.count>0 %>
