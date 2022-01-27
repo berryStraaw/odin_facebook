@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
         @user=User.find(params[:id])
-        @posts=@user.posts
+        @posts=@user.posts.sort_by(&:"#{'created_at'}").reverse.uniq
         @post=Post.new
     end
 

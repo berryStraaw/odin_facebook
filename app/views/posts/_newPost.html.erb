@@ -12,7 +12,18 @@
       </div>
     <% end %>
   
-    <%=form.text_field :body,placeholder: "What's on your mind"   %>
+    
+    <div class="postField">
+      <%=form.text_field :body,placeholder: "What's on your mind"   %>
+    </div>
+
+    <div class="postField">
+      <%= form.label "Add an image (optional)" %>
+      <%= form.file_field :picture do %>
+        <img alt="Notifications" class="bell_logo" src="/assets/image.png">
+      <% end %>
+    </div>
+    
     
     <div class="newPostActions">
       <%= form.submit %>

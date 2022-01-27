@@ -50,4 +50,8 @@ class User < ApplicationRecord
   def allPosts
     (posts.all+friendsPosts.all)
   end
+
+  has_one_attached :avatar
+
+  
 end

@@ -8,7 +8,12 @@
                 <%= link_to friend do%>
                     <div class="friendBox">
                         <div class="friendImg">
-                        IMG
+                            <% if friend.avatar.attached? %>
+                                <img src="<%=(url_for(friend.avatar))%>">
+                            <% else %>
+                                <%= friend.name.to_s[0].upcase %>
+                                <%= friend.surname.to_s[0].upcase %>
+                            <% end %>
                         </div>
                         <div class="friendName">
                             <%=friend.name%>
@@ -38,7 +43,12 @@
             <%= link_to friend do%>
                 <div class="friendBox friend">
                     <div class="friendImg">
-                        IMG
+                        <% if friend.avatar.attached? %>
+                            <img src="<%=(url_for(friend.avatar))%>">
+                        <% else %>
+                            <%= friend.name.to_s[0].upcase %>
+                            <%= friend.surname.to_s[0].upcase %>
+                        <% end %>
                     </div>
                     <div class="friendName">
                             <%=friend.name%>
@@ -52,12 +62,24 @@
     </div>
 
     <h1> All users </h1>
-    <div class="allUsers">
+    <div class="friendContainer">
         <% @users.each do |user| %>
             <%= link_to user do%>
-                <div class="userBox">
-                    <%=user.name%>
-                    <%=user.surname%>
+                <div class="friendBox friend">
+                    <div class="friendImg">
+                        <% if user.avatar.attached? %>
+                            <img src="<%=(url_for(user.avatar))%>">
+                        <% else %>
+                            <%= user.name.to_s[0].upcase %>
+                            <%= user.surname.to_s[0].upcase %>
+                        <% end %>
+                        </div>
+                    <div class="friendName">
+                            <%=user.name%>
+                    </div>
+                    <div class="friendSurname">
+                        <%=user.surname%>
+                    </div>
                 </div> 
             <% end %>
         <% end %>

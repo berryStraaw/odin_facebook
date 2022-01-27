@@ -50,7 +50,12 @@
         <div class="navProfile">
           <div class="navPfpText">
             <div class="navPfp">
-              Pic
+              <% if current_user.avatar.attached? %>
+                <img src="<%=(url_for(current_user.avatar))%>">
+              <% else %>
+                  <%= current_user.name.to_s[0].upcase %>
+                  <%= current_user.surname.to_s[0].upcase %>
+              <% end %>
             </div>
             <div class="navPText">
             <%= link_to "Show user", user_path(current_user), method: :get%>

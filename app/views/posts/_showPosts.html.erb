@@ -6,7 +6,12 @@
             <div class="postUserPfpNameDate">
                 <%= link_to(post.user) do %>
                     <div class="postUserPfp">
-                        Img
+                        <% if post.user.avatar.attached? %>
+                            <img src="<%=(url_for(post.user.avatar))%>">
+                        <% else %>
+                            <%= post.user.name.to_s[0].upcase %>
+                            <%= post.user.surname.to_s[0].upcase %>
+                        <% end %>
                     </div>
                 <% end %>
                 <div class="postUserNameDate">
@@ -44,6 +49,12 @@
         <div class="postContent">
             <%=post.body%>
         </div>
+        <% if post.picture.attached? %>
+            <div class="postContent">
+                <img src="<%=(url_for(post.picture))%>">
+            </div>                
+        <% end %>
+        
         <div class="postStats">
             <div class="postLike">
                 <% if post.likes.ids.include?(current_user.id)%>
@@ -69,7 +80,12 @@
             <div class="postComment" id=comment_<%=comment.id%>>
                 <%= link_to(comment.user) do %>
                     <div class="postCommentPfp">
-                        img
+                        <% if comment.user.avatar.attached? %>
+                            <img src="<%=(url_for(comment.user.avatar))%>">
+                        <% else %>
+                            <%= comment.user.name.to_s[0].upcase %>
+                            <%= comment.user.surname.to_s[0].upcase %>
+                        <% end %>
                     </div>
                 <% end %>
                 <div class="postCommentContent">
@@ -106,7 +122,12 @@
         
         <div class="postCommentAdd">
             <div class="postCommentAddPfp">
-                IMG
+                <% if current_user.avatar.attached? %>
+                    <img src="<%=(url_for(current_user.avatar))%>">
+                <% else %>
+                    <%= current_user.name.to_s[0].upcase %>
+                    <%= current_user.surname.to_s[0].upcase %>
+                <% end %>
             </div>
             
             <%= form_with model: [ post, post.comments.build ] do |form| %>

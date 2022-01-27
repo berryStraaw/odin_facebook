@@ -59,7 +59,12 @@
           </div>
         </div>
       </div>
-    
+      
+      <div class="loginFormField">
+        <%= f.label "Profile Picture" %>
+        <%= f.file_field :avatar %>
+      </div>
+
       <div class="signupActions">
         <%= f.submit "Sign up" %>
       </div>

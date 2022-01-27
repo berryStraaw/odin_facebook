@@ -38,7 +38,7 @@
 
 .newPostActions{
     width: 50%;
-    margin:0 auto 0;
+    margin:1rem auto 0;
     
 }
 .newPostActions input{
@@ -80,6 +80,17 @@
     height: 50px;
     line-height: 50px;
     margin-right: 1rem;
+    text-align: center;
+    color:white;
+}
+
+.postUserPfp img{
+    border-radius: 50%;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 1rem;
 }
 .delete-logo{
     width: 2rem;
@@ -101,6 +112,10 @@
 .postContent{
     margin-bottom: 1rem;
     overflow-wrap: break-word;
+}
+
+.postContent img{
+    max-width: 100%;
 }
 
 .postStats{

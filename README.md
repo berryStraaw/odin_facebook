@@ -31,8 +31,7 @@ TO-DO
 4
 5
 6
-7 Nav style
+7
 8 Unlike
-9. reload after adding comment
+9.
 10 footer
-11 forgoten password

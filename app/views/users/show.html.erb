@@ -1,7 +1,15 @@
 <div class="showUser">
     <div class="userDetails">
         <div class="userPfp">
-        IMG
+            <% if @user.avatar.attached? %>
+                <img src="<%=(url_for(@user.avatar))%>">
+            <% elsif @user==current_user %>
+                <%=link_to "Add Picture", edit_user_registration_path%>
+
+            <% else %>
+                <%= @user.name.to_s[0].upcase %>
+                <%= @user.surname.to_s[0].upcase %>
+            <% end %>
         </div>
 
         <div class="userName">

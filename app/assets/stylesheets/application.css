@@ -99,6 +99,21 @@ body *{
     margin-bottom: 1rem;
 }
 
+.loginEditAccountButton{
+    display: block;
+    margin:0 auto 0;
+    line-height: 3.5rem;
+    height: 3.5rem;   
+    margin-bottom: 1rem;
+    background-color: red;
+    color:#FFFFFF;
+    text-decoration: none;
+    border-radius: 8px;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
  .loginNewAccountButton{
     display: block;
     margin:0 auto 0;
@@ -208,7 +223,10 @@ body *{
 
  .navIcons li{
    margin-right: 2rem;
-   
+}
+
+nav a{
+    color: #B8BBBF;
 }
 
 .navIcons .navIconColor{
@@ -223,10 +241,32 @@ body *{
  .navPfpText{
      display:flex;
      margin-right: 2rem;
+     line-height: 50px;
  }
  .navPfp{
     margin-right: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 1rem;
+    text-align: center;
+    color:white;
  }
+
+ .navPfp img{
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 1rem;
+
+ }
+
+
 
  .navNotifications{
      margin-right: 2rem;

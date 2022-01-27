@@ -23,10 +23,10 @@ class CommentsController < ApplicationController
     respond_to do |format|
         if @comment.save
             #UserMailer.with(user: current_user).welcome_email.deliver_later
-          format.html { redirect_to root_path, notice: "Comment was successfully created." }
+          format.html { redirect_to request.referrer, notice: "Comment was successfully created." }
           format.json { render :show, status: :created, location: @comment }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_to request.referrer, status: :unprocessable_entity }
           format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
     end

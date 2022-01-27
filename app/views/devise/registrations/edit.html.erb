@@ -1,43 +1,79 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+<div class="loginBox signupBox">
+<div class="loginHeader">
+  <div class="logo">
+    <img class="fb_logo" src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Facebook">
   </div>
+  <div class="logoText">
+    Facebook helps you connect and share with the people in your life
+  </div>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+<div class="loginForm signupForm">
+  <div class="loginBorder">
+    <h1>Edit User</h1>
+    <p>Make changes with Ease.</p>
+    <p class="alert"><%= alert %></p>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <div class="loginFormField">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address" %>
+      </div>
+    
+      <div class="loginFormField">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    
+      <div class="loginFormField">
+        <%= f.label :dateOfBirth, "Date of birth" , class: "greySmallText"%><br />
+        <%= f.date_field :dateOfBirth, autocomplete: "date", placeholder: "Date of birth" %>
+      </div>
+    
+      <div class="signupFormField">
+        <%= f.label :gender, class: "greySmallText" %><br />
+        <div class="signUpRadio">
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Male", :value => "Male"  %>
+            <%= f.radio_button :gender, 'Male' %>
+          </div>
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Female", :value => "Female" %>
+            <%= f.radio_button :gender, 'Female' %>
+          </div>
+          <div class="signupRadioOption">
+            <%= f.label :gender, "Other", :value => "Other" %>
+            <%= f.radio_button :gender, 'Other' %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="loginFormField">
+        <%= f.label "Profile Picture" %>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="loginFormField">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="signupActions">
+        <%= f.submit "Update" %>
+      </div>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "loginEditAccountButton"%>
+  <%= link_to "Back", :back %>
+</div>
+</div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+<footer>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</footer>
