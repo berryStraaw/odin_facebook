@@ -23,15 +23,3 @@ Things you may want to cover:
 
 * ...
 
-TO-DO
-
-1 
-2 
-3
-4
-5
-6
-7
-8 Unlike
-9.
-10 footer
