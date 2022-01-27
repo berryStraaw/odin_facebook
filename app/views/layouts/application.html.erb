@@ -23,10 +23,6 @@
         <div class="navLogoSearch">
           <div class="navLogo">
             <img alt="Odin Logo" class="logo__img inline" src="<%= asset_path('odin-logo.svg') %>">
-            odin-logo.svg
-            <img alt="Odin Logo" class="logo__img inline" src="odin-logo.svg">
-            <img alt="Odin Logo" class="logo__img inline" src="assets/odin-logo.svg">
-            <img alt="Odin Logo" class="logo__img inline" src="public/assets/odin-logo.svg">
           </div>
           <div class="navSearch">
             <%= form_with url: "/users", method: :get do |f| %>
@@ -68,9 +64,9 @@
           <div class="navNotifications">
             <a href=<%=friends_path%>>
             <% if !@notifications.nil? %>
-              <img alt="Notifications" class="bell_logo" src="/assets/bell-alert.png">
+              <img alt="Notifications" class="bell_logo" src="<%= asset_path('bell-alert.png') %>">
             <% else %>
-              <img alt="Notifications" class="bell_logo" src="/assets/bell-default.png">
+              <img alt="Notifications" class="bell_logo" src="<%= asset_path('bell-default.png') %>">
             <% end%>
             </a>
           </div>
