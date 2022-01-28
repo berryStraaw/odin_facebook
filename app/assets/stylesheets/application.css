@@ -41,8 +41,14 @@ body *{
      padding: 20vh 20vw;
      align-items: center;
      justify-content: center;
+     
  }
 
+ .logo{
+     font-size: 46px;
+     font-weight: 700;
+     color: #166FE5;
+ }
  .loginHeader{
      margin-right: 5rem;
  }
@@ -280,3 +286,55 @@ nav a{
     filter: invert(57%) sepia(7%) saturate(47%) hue-rotate(202deg) brightness(93%) contrast(93%);
      width: 25px;
  }
+
+ @media only screen and (max-width: 1050px) {
+    .loginBox {
+        flex-wrap: wrap;
+    }
+
+    .loginHeader{
+        margin: 0 auto 1rem;
+        text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .logoText{
+        font-size: 3vw;
+    }
+
+    .loginForm{
+        width: 80vw;
+        
+    }
+
+    .loginFormField input{
+        width: 71vw;
+        height: 10vw;
+        
+        line-height: 10vw;
+    }
+
+    .loginActions input{
+        width: 77vw;
+        font-size: 4vw;
+        height: 10.8vw;  
+
+     }
+
+
+     .loginEditAccountButton{
+        width: 60vw;
+        height: 10vw;
+        font-size: 4vw;
+        line-height: 10vw;
+    }
+    
+     .loginNewAccountButton{
+        width: 60vw;
+        height: 10vw;
+        font-size: 4vw;
+        line-height: 10vw;
+     }
+
+  }
