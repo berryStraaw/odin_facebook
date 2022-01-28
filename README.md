@@ -1,25 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A final ruby on rails project from the odin project (can be found at https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/rails-final-project)
 
-Things you may want to cover:
+Features:
 
-* Ruby version
+* Responsive design
 
-* System dependencies
+* Devise security (security tokens and cookies)
 
-* Configuration
+* AWS s3 cloud database
 
-* Database creation
+* Log in via facebook
 
-* Database initialization
+* encrypted sensitive information such as database keys
 
-* How to run the test suite
+Ruby version 6
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
