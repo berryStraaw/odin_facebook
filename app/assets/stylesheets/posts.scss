@@ -134,3 +134,33 @@
 .postLike img{
     width: 20px;
 }
+
+@media only screen and (max-width: 850px) {
+    
+    .postField{
+    width: 82vw;
+    margin: 0 auto 1rem;
+    }
+
+    .postField #post_body{
+        width: 87.5%;
+        margin: 0 auto 0;  
+    }
+
+    .createPost{
+        margin:2rem 1rem 3rem;
+        width: 95vw;
+    }
+
+    
+    .post{
+        box-sizing: border-box;
+        margin: 1rem 1rem;
+        width: 95vw;
+    }
+
+    .postCommentAddBody #comment_body{
+
+        width: 100%;
+    }
+}

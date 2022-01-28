@@ -97,3 +97,15 @@ color:#E7E9ED; Light white text
     position: relative;
     z-index: 2;
 }
+
+@media only screen and (max-width: 850px) {
+    .userDetails{
+        width: 95vw;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .userName{
+        font-size: 24px;
+    }
+}
